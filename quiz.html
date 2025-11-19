@@ -4,53 +4,134 @@
 <meta charset="UTF-8">
 <title>Body Type Quiz</title>
 <style>
+    /* --- COLOR SCHEME --- */
+    :root {
+        --navy: #0b1628;
+        --navy-light: #0f1e33;
+        --gold: #d4b574;
+        --text-light: #f2f2f2;
+        --text-muted: #c7cbd1;
+    }
+
     body {
-        font-family: Arial, sans-serif;
-        background: #f6f6f6;
+        font-family: "Segoe UI", sans-serif;
+        background: var(--navy);
+        color: var(--text-light);
         margin: 0;
         padding: 0;
+        min-height: 100vh;
+
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 100vh;
     }
+
+    /* --- QUIZ CONTAINER --- */
     .container {
-        background: white;
-        padding: 20px 30px;
-        width: 450px;
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0,0,0,0.15);
+        background: var(--navy-light);
+        padding: 30px 35px;
+        width: 480px;
+        border-radius: 14px;
+
+        box-shadow: 0 0 25px rgba(0,0,0,0.45);
+        border: 1px solid rgba(212,181,116,0.25);
+        animation: fadeIn 0.7s ease;
     }
-    h2 { text-align: center; }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--gold);
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+    h3 {
+        color: var(--gold);
+        font-weight: 500;
+    }
+
     .question-box { margin-bottom: 20px; }
-    .options label { display: block; margin: 8px 0; cursor: pointer; }
+
+    /* --- OPTIONS --- */
+    .options label {
+        display: block;
+        margin: 10px 0;
+        padding: 10px 12px;
+        border-radius: 8px;
+        background: rgba(255,255,255,0.05);
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: 0.3s ease;
+        color: var(--text-muted);
+    }
+
+    .options label:hover {
+        border-color: var(--gold);
+        color: var(--text-light);
+    }
+
+    input[type="radio"] {
+        margin-right: 10px;
+        transform: scale(1.2);
+    }
+
+    /* --- BUTTON --- */
     button {
         width: 100%;
         padding: 12px;
         border: none;
         font-size: 16px;
         margin-top: 10px;
-        border-radius: 5px;
+        border-radius: 8px;
         cursor: pointer;
-        background: #333;
-        color: white;
+
+        background: var(--gold);
+        color: #1b1b1b;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: 0.3s ease;
     }
+
+    button:hover {
+        background: #bfa15f;
+    }
+
+    /* --- RESULT BOX --- */
     #result {
         margin-top: 20px;
-        padding: 15px;
-        background: #e3f2fd;
-        border-radius: 8px;
+        padding: 18px;
+        background: rgba(255,255,255,0.07);
+        border-radius: 10px;
         text-align: center;
         display: none;
+        border: 1px solid rgba(212,181,116,0.3);
     }
+
+    #result a {
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    #result a:hover {
+        text-decoration: underline;
+    }
+
 </style>
 </head>
 <body>
 
 <div class="container">
     <h2>Body Type Quiz</h2>
+
     <div id="quiz"></div>
+
     <button onclick="nextQuestion()">Next</button>
+
     <div id="result"></div>
 </div>
 
@@ -140,7 +221,9 @@
     }
 
     function showResult() {
-        let finalType = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+        let finalType = Object.keys(scores).reduce((a, b) =>
+            scores[a] > scores[b] ? a : b
+        );
 
         const descriptions = {
             hourglass: "You have an Hourglass Body Type – balanced shoulders and hips with a defined waist.",
@@ -150,16 +233,20 @@
         };
         
         const link = {
-            hourglass: "hourglass",
-            pear: "pear",
-            rectangle: "rectangle",
-            apple: "apple"
-        }
+            hourglass: "",
+            pear: "",
+            rectangle: "",
+            apple: ""
+        };
+
         document.getElementById("quiz").style.display = "none";
         document.querySelector("button").style.display = "none";
 
         const result = document.getElementById("result");
-        result.innerHTML = `<h3>Your Body Type:</h3><p>${descriptions[finalType]}</p><a href="${link[finalType]}.html">Get some styling tips!</a>`;
+        result.innerHTML =
+            `<h3>Your Body Type:</h3>
+             <p>${descriptions[finalType]}</p>
+             <a href="${link[finalType]}">Get some styling tips!</a>`;
         result.style.display = "block";
     }
 
