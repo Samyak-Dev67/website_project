@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apple Body Type</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background: #1b1b1b; 
+            color: #e6dfd6;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .header {
+            text-align: center;
+            padding: 45px 20px;
+            background: linear-gradient(to bottom, #2a2a2a, #1b1b1b);
+        }
+
+        .header h1 {
+            font-weight: 700;
+            color: #d6c4b4;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+        }
+
+        .header p {
+            color: #b8ac9f;
+            font-size: 1.15rem;
+        }
+
+        .desc-box {
+            background: #262525;
+            padding: 28px;
+            border-radius: 18px;
+            max-width: 950px;
+            margin: auto;
+            margin-bottom: 45px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+        }
+
+        .desc-box h4 {
+            color: #d4bda5;
+            margin-bottom: 15px;
+        }
+
+        .desc-box p {
+            color: #c8bfb5;
+            line-height: 1.65;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #d1c5b8;
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 22px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #3a3a3a;
+            height: auto;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.45);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.07);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.55);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>The Apple Body Type</h1>
+        <p style="max-width: 650px; margin: auto;">
+            A striking silhouette defined by a full bust, rounded midsection, and beautifully smooth curves, the apple body type embodies presence and quiet power.
+        </p>
+    </div>
+
+    <div class="desc-box">
+        <h4>Understanding the Apple Shape</h4>
+        <p>
+            The apple-shaped body is characterized by a fuller upper body, broader shoulders, and a softer, rounded waistline. 
+            Legs and hips are often slimmer, giving the silhouette a distinct upward emphasis.
+        </p>
+
+        <p>
+            Styling an apple shape means leaning into balance, elongating the torso with clean lines, creating gentle vertical movement, 
+            and choosing fabrics that frame rather than cling. Structured necklines, subtle drapes, and elegant detailing all work in effortless harmony.
+        </p>
+
+        <p>
+            This shape carries a natural boldness: confident, striking, and impossible to overlook.
+        </p>
+    </div>
+
+    <div class="subtitle">Style Gallery, 10 Looks, 10 Perspectives</div>
+
+    <div class="gallery container">
+        <!-- 10 Empty Image Slots -->
+        <img src="round1.jpeg" alt="Apple style 1">
+        <img src="round2.jpeg" alt="Apple style 2">
+        <img src="round3.jpeg" alt="Apple style 3">
+        <img src="round4.jpeg" alt="Apple style 4">
+        <img src="round5.jpeg" alt="Apple style 5">
+        <img src="round6.jpeg" alt="Apple style 6">
+        <img src="round7.jpeg" alt="Apple style 7">
+        <img src="round8.jpeg" alt="Apple style 8">
+        <img src="round9.jpeg" alt="Apple style 9">
+        <img src="round10.jpeg" alt="Apple style 10">
+    </div>
+
+</body>
+</html>
