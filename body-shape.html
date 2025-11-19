@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Select Your Body Shape</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0e1420;
+      --card:#101823;
+      --gold:#c7a86f;
+      --muted:#bfc7d1;
+    }
+    body{
+      background:linear-gradient(180deg,#0a0f17, var(--bg));
+      color:#eef2f3;
+      font-family:Inter, system-ui;
+      padding-bottom:60px;
+    }
+    .title{
+      text-align:center;
+      font-weight:800;
+      margin-top:60px;
+      margin-bottom:20px;
+    }
+    .subtitle{
+      text-align:center;
+      color:var(--muted);
+      max-width:600px;
+      margin:0 auto 40px;
+    }
+    .option-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.05);
+      padding:26px;
+      border-radius:14px;
+      text-align:center;
+      transition:.3s;
+      cursor:pointer;
+    }
+    .option-card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(199,168,111,0.25);
+      box-shadow:0 12px 26px rgba(0,0,0,0.5);
+    }
+    .icon-placeholder{
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.04);
+      margin:0 auto 14px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:32px;
+      color:var(--gold);
+      border:1px solid rgba(255,255,255,0.05);
+    }
+    a{text-decoration:none; color:inherit}
+      /* MATCHED HERO GLASS + DEPTH */
+    .option-card{
+      backdrop-filter:blur(6px);
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:radial-gradient(circle at 30% 20%, rgba(255,255,255,0.05), transparent 60%),
+                 radial-gradient(circle at 70% 80%, rgba(255,255,255,0.03), transparent 70%);
+      pointer-events:none;
+      z-index:-1;
+    }
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="title">Find Your Perfect Fit</h1>
+    <p class="subtitle">Choose your body shape if you already know it, or take our short, fun quiz to discover the silhouette that feels most you.</p>
+
+    <div class="row g-4 mt-4 justify-content-center">
+      <!-- SELECT SHAPE -->
+      <div class="col-md-4">
+        <a href="select.html">
+        <div class="option-card">
+          <div class="icon-placeholder">👗</div>
+          <h4 style="font-weight:700">Select Your Body Shape</h4>
+          <p style="color:var(--muted)">Browse silhouettes and pick the one that feels right. You'll get tailored clothing recommendations instantly.</p>
+        </div>
+        </a>
+      </div>
+
+      <!-- QUIZ -->
+      <div class="col-md-4">
+        <a href="">
+        <div class="option-card">
+          <div class="icon-placeholder">❓</div>
+          <h4 style="font-weight:700">Not Sure Yet? Take the Quiz</h4>
+          <p style="color:var(--muted)">A quick and light‑hearted quiz that helps you understand your natural outline. No pressure — just fun.</p>
+        </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
