@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rectangle Body Type</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background: #1b1b1b;
+            color: #e6dfd6;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .header {
+            text-align: center;
+            padding: 45px 20px;
+            background: linear-gradient(to bottom, #2a2a2a, #1b1b1b);
+        }
+
+        .header h1 {
+            font-weight: 700;
+            color: #d6c4b4;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+        }
+
+        .header p {
+            color: #b8ac9f;
+            font-size: 1.15rem;
+        }
+
+        .desc-box {
+            background: #262525;
+            padding: 28px;
+            border-radius: 18px;
+            max-width: 950px;
+            margin: auto;
+            margin-bottom: 45px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+        }
+
+        .desc-box h4 {
+            color: #d4bda5;
+            margin-bottom: 15px;
+        }
+
+        .desc-box p {
+            color: #c8bfb5;
+            line-height: 1.65;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #d1c5b8;
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 22px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #3a3a3a;
+            height: auto;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.45);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.07);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.55);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>The Rectangle Body Type</h1>
+        <p style="max-width: 650px; margin: auto;">
+            Balanced proportions, clean lines, and a naturally athletic frame , the rectangle body type carries a quiet symmetry that lends itself to endless styling possibilities.
+        </p>
+    </div>
+
+    <div class="desc-box">
+        <h4>Understanding the Rectangle Shape</h4>
+        <p>
+            The rectangle body type features shoulders, waist, and hips that align into a smooth, consistent line. 
+            This shape appears balanced, athletic, and naturally streamlined. There are no sharp contrasts — instead, the silhouette feels uniform and steady.
+        </p>
+
+        <p>
+            Styling this body type is all about creating gentle definition, subtle curves, and visual movement. 
+            Layering, belted waists, structured tops, and playful textures naturally elevate the silhouette.
+        </p>
+
+        <p>
+            It is a shape defined by simplicity and strength — clean, minimal, and endlessly adaptable.
+        </p>
+    </div>
+
+    <div class="subtitle">Style Gallery — 10 Looks, 10 Perspectives</div>
+
+    <div class="gallery container">
+        <!-- 10 Empty Image Slots -->
+        <img src="rectangle1.jpeg" alt="Rectangle style 1">
+        <img src="rectangle2.jpeg" alt="Rectangle style 2">
+        <img src="rectangle3.jpeg" alt="Rectangle style 3">
+        <img src="rectangle4.jpeg" alt="Rectangle style 4">
+        <img src="rectangle10.jpeg" alt="Rectangle style 5">
+        <img src="rectangle5.jpeg" alt="Rectangle style 6">
+        <img src="rectangle6.jpeg" alt="Rectangle style 7">
+        <img src="rectangle7.jpeg" alt="Rectangle style 8">
+        <img src="rectangle8.jpeg" alt="Rectangle style 9">
+        <img src="rectangle9.jpeg" alt="Rectangle style 10">
+    </div>
+
+</body>
+</html>
