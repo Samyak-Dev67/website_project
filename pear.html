@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pear Body Type</title>
+
+    <style>
+        :root {
+            --bg: #0b1320;
+            --panel: #111a2b;
+            --gold: #d4b574;
+            --text: #f2f2f4;
+            --muted: #b9c1cd;
+            --glass: rgba(255,255,255,0.05);
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(180deg, #0a111c, var(--bg));
+            color: var(--text);
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        .header h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--muted);
+            max-width: 760px;
+            margin: auto;
+            font-size: 1.15rem;
+        }
+
+        /* DESCRIPTION BOX */
+        .desc-box {
+            background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.06);
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+        }
+
+        .desc-box h4 {
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .desc-box p {
+            color: var(--muted);
+            line-height: 1.55;
+            margin-bottom: 18px;
+        }
+
+        /* SUBTITLE */
+        .subtitle {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 0.7px;
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 22px;
+            padding: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 14px;
+            background: var(--panel);
+            height: 240px;
+            object-fit: cover;
+            transition: 0.35s ease;
+            border: 1px solid rgba(255,255,255,0.07);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.06);
+            box-shadow: 0 10px 32px rgba(0,0,0,0.6);
+            border-color: var(--gold);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>The Pear Body Type</h1>
+        <p>
+            Grounded, soft, and gracefully curved , the pear silhouette is shaped by balance.
+            It carries its elegance quietly, like a story written in smooth lines and warm proportions.
+        </p>
+    </div>
+
+    <div class="desc-box">
+        <h4>Understanding the Pear Shape</h4>
+
+        <p>
+            The pear body type features a slimmer upper body and fuller hips and thighs , a silhouette built on gentle contrast. 
+            It has a natural sense of stability, with curves that flow downward like a quiet rhythm.
+        </p>
+
+        <p>
+            This shape thrives in outfits that honor movement: structured shoulders, soft draping, balanced proportions, and pieces that guide the eye upward.
+            The goal is not to “correct” anything, but to allow harmony in shape and fabric to meet in effortless expression.
+        </p>
+
+        <p>
+            Every curve tells a story. Dressing a pear shape is simply choosing the chapter you want to share.
+        </p>
+    </div>
+
+    <div class="subtitle">Style Gallery , 10 Looks, 10 Perspectives</div>
+
+    <div class="gallery">
+        <img src="pear1.jpeg" alt="Pear style 1" />
+        <img src="pear2.jpeg" alt="Pear style 2" />
+        <img src="pear3.jpeg" alt="Pear style 3" />
+        <img src="pear4.jpeg" alt="Pear style 4" />
+        <img src="pear5.jpeg" alt="Pear style 5" />
+        <img src="pear6.jpeg" alt="Pear style 6" />
+        <img src="pear7.jpeg" alt="Pear style 7" />
+        <img src="pear8.jpeg" alt="Pear style 8" />
+        <img src="pear9.jpeg" alt="Pear style 9" />
+        <img src="pear10.jpeg" alt="Pear style 10" />
+    </div>
+
+</body>
+</html>
