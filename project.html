@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Style Shapes — Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0e1420;
+      --card:#0f1720;
+      --muted:#bfc7d1;
+      --gold:#c7a86f;
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#07111a 0%,var(--bg) 60%);
+      color:#eef2f3;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      -webkit-font-feature-settings: "liga" 1;
+    }
+
+    /* HERO */
+    .hero{
+      padding:96px 0 64px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero .bg-visual{
+      position:absolute; inset:0; z-index:0;
+      background-image: url('/mnt/data/WhatsApp Image 2025-11-19 at 21.29.10.jpeg');
+      background-size:cover; background-position:center 40%;
+      transform-origin:center;
+      filter:grayscale(.06) contrast(.92) brightness(.55);
+      transition:transform .6s ease;
+    }
+    .hero .overlay{
+      position:absolute; inset:0; background:linear-gradient(180deg, rgba(3,6,12,0.45), rgba(6,10,16,0.65)); z-index:1;
+    }
+    .hero .container{position:relative; z-index:2}
+    .lead-badge{display:inline-block; padding:8px 16px; border-radius:10px; background:linear-gradient(90deg, rgba(199,168,111,0.12), rgba(199,168,111,0.06)); color:var(--gold); border:1px solid rgba(199,168,111,0.12); font-weight:700; letter-spacing:0.6px}
+    .lead-title{font-size:clamp(1.6rem,3.8vw,2.6rem); line-height:1.02; margin-top:12px; font-weight:800}
+    .lead-sub{color:var(--muted); max-width:720px; margin-top:12px}
+
+    /* CTA */
+    .btn-gold{background:var(--gold); color:#07111a; border-radius:28px; padding:10px 24px; font-weight:700; box-shadow:0 6px 18px rgba(199,168,111,0.12); border:0}
+    .btn-outline-glass{border-radius:28px; padding:10px 22px; border:1px solid rgba(255,255,255,0.08); background:transparent; color:rgba(255,255,255,0.92)}
+
+    /* SECTION TITLES */
+    .section-title{color:#eef0f2; font-weight:800; margin:64px 0 28px; text-align:center; letter-spacing:.3px}
+
+    /* SHAPE CARDS - informational only */
+    .shapes-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; justify-items:center; text-align:center;}
+    .shape-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      padding:22px; border-radius:14px; text-align:center; color: #eef2f3;
+      transform:translateY(0); transition:transform .36s cubic-bezier(.2,.9,.2,1), box-shadow .36s;
+      display:flex; flex-direction:column; gap:10px; min-height:170px; justify-content:flex-start; align-items:center;
+    }
+    .shape-card:hover{transform:translateY(-8px); box-shadow:0 18px 40px rgba(0,0,0,0.55); border-color:rgba(199,168,111,0.15)}
+    .shape-ico{width:64px; height:64px; border-radius:50%; background:var(--glass); display:flex; align-items:center; justify-content:center}
+    .shape-ico img{width:40px; height:40px; object-fit:contain}
+    .shape-title{font-weight:700; margin-top:6px}
+    .shape-desc{color:var(--muted); font-size:0.95rem}
+
+    /* Info block */
+    .info-panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:22px; border-radius:12px; border:1px solid rgba(255,255,255,0.03)}
+
+    /* gallery */
+    .gallery-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .gallery-grid img{width:100%; height:200px; object-fit:cover; border-radius:10px}
+
+    footer{color:var(--gold); padding:36px 0; text-align:center}
+
+    /* subtle reveal animation */
+    .reveal{opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.2,1)}
+    .reveal.visible{opacity:1; transform:none}
+
+    /* floating accent */
+    .floaty{animation:floaty 6s ease-in-out infinite}
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+
+    @media (max-width:992px){ .gallery-grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:576px){ .gallery-grid{grid-template-columns:1fr} .hero{padding:64px 0} }
+  </style>
+</head>
+<body>
+
+  <header></header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="bg-visual" id="heroBg"></div>
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <div class="lead-badge">STYLE SHAPES</div>
+            <h1 class="lead-title">Dress with confidence. Define your shape.</h1>
+            <p class="lead-sub">A friendly, positive guide to common body silhouettes and styling tips. This page is informational — to select a body shape, proceed to the selection page where you'll choose one option.</p>
+
+            <div class="mt-4 d-flex gap-3">
+              <button id="startGuide" class="btn btn-gold">Explore tips</button>
+              <a href="body-shape.html" class="btn btn-outline-glass d-flex align-items-center gap-2">
+  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="best for you" style="width:20px; height:20px; opacity:0.9">
+  What's best for you
+</a>
+            </div>
+          </div>
+          <div class="col-lg-5 d-none d-lg-block text-end">
+            <div class="floaty" style="width:220px; height:220px; border-radius:20px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); display:inline-block; backdrop-filter:blur(6px)"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="margin-top:120px">
+      <h2 class="section-title reveal">Common body shapes</h2>
+
+      <div class="shapes-grid reveal" id="shapes">
+        <div class="shape-card" data-shape="apple">
+          <div class="shape-ico"><img src="https://cdn-icons-png.flaticon.com/512/4151/4151092.png" alt="apple"></div>
+          <div class="shape-title">Apple</div>
+          <div class="shape-desc">Broader upper body and midsection with slimmer legs. Styling that creates vertical lines and light waist definition works well.</div>
+        </div>
+
+        <div class="shape-card" data-shape="pear">
+          <div class="shape-ico"><img src="https://cdn-icons-png.flaticon.com/512/2909/2909761.png" alt="pear"></div>
+          <div class="shape-title">Pear</div>
+          <div class="shape-desc">Narrower shoulders and wider hips. Emphasize the upper body with structured tops and eye-catching necklines.</div>
+        </div>
+
+        <div class="shape-card" data-shape="hourglass">
+          <div class="shape-ico"><img src="https://cdn-icons-png.flaticon.com/512/1047/1047691.png" alt="hourglass"></div>
+          <div class="shape-title">Hourglass</div>
+          <div class="shape-desc">Balanced bust and hips with a defined waist. Fitted waists and garments that follow curves flatter this silhouette.</div>
+        </div>
+
+        <div class="shape-card" data-shape="rectangle">
+          <div class="shape-ico"><img src="https://cdn-icons-png.flaticon.com/512/4909/4909834.png" alt="rectangle"></div>
+          <div class="shape-title">Rectangle</div>
+          <div class="shape-desc">More straight-lined silhouette with subtle curves. Use belts, layers and tailoring to add definition.</div>
+        </div>
+
+        <div class="shape-card" data-shape="round">
+          <div class="shape-ico"><img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="round"></div>
+          <div class="shape-title">Round</div>
+          <div class="shape-desc">Softer midsection and gentle curves. Vertical seams, longer jackets and structured pieces help balance proportions.</div>
+        </div>
+      </div>
+
+      <div class="mt-5 info-panel reveal">
+        <h4 style="margin-bottom:6px">A reflection of shape and story</h4>
+<p style="color:var(--muted)">No body fits inside a single outline. We are sketches written by time — soft curves, sharp lines, quiet strengths. These shapes are not labels, but gentle metaphors, invitations to see yourself with kinder eyes. Let them guide you only as far as they spark curiosity; the rest of the canvas is yours to color.</p>
+      </div>
+
+      <div class="mt-5">
+        <h3 class="section-title reveal">Inspiration gallery</h3>
+        <div class="gallery-grid reveal">
+          <img src="https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg" alt="inspo1">
+          <img src="https://images.pexels.com/photos/3771089/pexels-photo-3771089.jpeg" alt="inspo2">
+          <img src="https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg" alt="inspo3">
+        </div>
+      </div>
+
+      <div class="mt-5 info-panel reveal">
+        <h4 style="margin-bottom:6px">Style is a conversation</h4>
+        <p style="color:var(--muted)">Clothing isn’t a mask — it’s language. Every hemline, every silhouette whispers something about who you are, what you love, and how you move through the world. Let these shapes and tips be your vocabulary, not your rules. Wear what makes you feel awake, present, unmistakably yourself.</p>
+      </div>
+
+    </section>
+</main>
+
+  <footer>
+    © 2025 Style Shapes — Celebrate your silhouette
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // small interactive/animated touches
+    // 1) parallax-like respond on mouse move for hero bg
+    (function(){
+      const hero = document.getElementById('heroBg');
+      const container = document.querySelector('.hero');
+      if(hero && container){
+        container.addEventListener('mousemove', (e)=>{
+          const rX = (e.clientX - window.innerWidth/2)/80;
+          const rY = (e.clientY - window.innerHeight/2)/120;
+          hero.style.transform = `translate(${rX}px, ${rY}px) scale(1.03)`;
+        });
+        container.addEventListener('mouseleave', ()=>{ hero.style.transform = 'translate(0,0) scale(1)'; });
+      }
+    })();
+
+    // 2) reveal on scroll using IntersectionObserver
+    (function(){
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(ent=>{ if(ent.isIntersecting) ent.target.classList.add('visible'); });
+      }, {threshold:0.12});
+      document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    })();
+
+    // 3) disable direct selection on this page (cards are informational)
+    document.querySelectorAll('.shape-card').forEach(c=>{
+      c.addEventListener('click', ()=>{
+        // show a small tooltip/modal-like hint to redirect to selection page
+        const hint = document.createElement('div');
+        hint.textContent = 'To choose a shape and get recommendations, click "Select your body shape" above.';
+        hint.style.position='fixed'; hint.style.left='50%'; hint.style.top='18%'; hint.style.transform='translateX(-50%)';
+        hint.style.background='rgba(3,6,12,0.9)'; hint.style.padding='12px 18px'; hint.style.border='1px solid rgba(255,255,255,0.04)'; hint.style.borderRadius='10px'; hint.style.zIndex=9999; hint.style.color='var(--muted)';
+        document.body.appendChild(hint);
+        setTimeout(()=>hint.remove(),2200);
+      });
+    });
+
+    // guide button stub
+    document.getElementById('startGuide').addEventListener('click', ()=>{
+      window.scrollTo({top:document.querySelector('.shapes-grid').offsetTop - 20, behavior:'smooth'});
+    });
+  </script>
+</body>
+</html>
