@@ -1,48 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz!</title>
+<meta charset="UTF-8">
+<title>Body Type Quiz</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f6f6f6;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .container {
+        background: white;
+        padding: 20px 30px;
+        width: 450px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    }
+    h2 { text-align: center; }
+    .question-box { margin-bottom: 20px; }
+    .options label { display: block; margin: 8px 0; cursor: pointer; }
+    button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        font-size: 16px;
+        margin-top: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        background: #333;
+        color: white;
+    }
+    #result {
+        margin-top: 20px;
+        padding: 15px;
+        background: #e3f2fd;
+        border-radius: 8px;
+        text-align: center;
+        display: none;
+    }
+</style>
 </head>
 <body>
-    <form>
-    <h1><label for="q1" name="q1">Question 1:</label></h1>
-    <input type="radio" value="opt1">option 1
-    <input type="radio" value="opt1">option 2
-    <input type="radio" value="opt1">option 3
-    <input type="radio" value="opt1">option 4
 
-    <h1><label>Question 2:</label></h1>
-    <input type="radio" value="opt1">option 1
-    <input type="radio" value="opt1">option 2
-    <input type="radio" value="opt1">option 3
-    <input type="radio" value="opt1">option 4
+<div class="container">
+    <h2>Body Type Quiz</h2>
+    <div id="quiz"></div>
+    <button onclick="nextQuestion()">Next</button>
+    <div id="result"></div>
+</div>
 
-    <h1><label>Question 3:</label></h1>
-    <input type="radio" value="opt1">option 1
-    <input type="radio" value="opt1">option 2
-    <input type="radio" value="opt1">option 3
-    <input type="radio" value="opt1">option 4
+<script>
+    const quizData = [
+        {
+            question: "1. How would you describe your shoulders?",
+            options: {
+                hourglass: "Same width as hips",
+                pear: "Narrower than hips",
+                rectangle: "Straight, not very defined",
+                apple: "Broader than hips"
+            }
+        },
+        {
+            question: "2. How would you describe your waistline?",
+            options: {
+                hourglass: "Well-defined waist",
+                pear: "Slightly defined",
+                rectangle: "Little to no waist definition",
+                apple: "Less defined, fuller waist"
+            }
+        },
+        {
+            question: "3. Where do you gain weight first?",
+            options: {
+                apple: "Stomach",
+                pear: "Hips & thighs",
+                hourglass: "Evenly all over",
+                rectangle: "No specific area"
+            }
+        },
+        {
+            question: "4. What best describes your hips?",
+            options: {
+                pear: "Wider than shoulders",
+                hourglass: "Same width as shoulders",
+                rectangle: "Similar width, straight",
+                apple: "Narrow compared to shoulders"
+            }
+        },
+        {
+            question: "5. Overall body shape?",
+            options: {
+                hourglass: "Curvy with balanced hips and shoulders",
+                pear: "Smaller upper body, larger bottom",
+                rectangle: "Balanced but straight shape",
+                apple: "Fuller upper body, slimmer legs"
+            }
+        }
+    ];
 
-    <h1><label>Question 4:</label></h1>
-    <input type="radio" value="opt1">option 1
-    <input type="radio" value="opt1">option 2
-    <input type="radio" value="opt1">option 3
-    <input type="radio" value="opt1">option 4
+    let index = 0;
+    const scores = { hourglass: 0, pear: 0, rectangle: 0, apple: 0 };
 
-    <h1><label>Question 5:</label></h1>
-    <input type="radio" value="opt1">option 1
-    <input type="radio" value="opt1">option 2
-    <input type="radio" value="opt1">option 3
-    <input type="radio" value="opt1">option 4
-    
-    <br><br>
-    <button type="submit">submit</button>
-    </form>
+    function loadQuestion() {
+        const q = quizData[index];
+        let html = `
+            <div class="question-box">
+                <h3>${q.question}</h3>
+                <div class="options">
+        `;
+        for (let type in q.options) {
+            html += `
+                <label>
+                    <input type="radio" name="answer" value="${type}">
+                    ${q.options[type]}
+                </label>
+            `;
+        }
+        html += "</div></div>";
+        document.getElementById("quiz").innerHTML = html;
+    }
+
+    function nextQuestion() {
+        let answer = document.querySelector("input[name='answer']:checked");
+        if (!answer) { alert("Please select an option"); return; }
+
+        scores[answer.value]++;
+
+        index++;
+        if (index < quizData.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        let finalType = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+
+        const descriptions = {
+            hourglass: "You have an Hourglass Body Type – balanced shoulders and hips with a defined waist.",
+            pear: "You have a Pear Body Type – smaller upper body and wider hips.",
+            rectangle: "You have a Rectangle Body Type – balanced but with less waist definition.",
+            apple: "You have an Apple Body Type – fuller upper body with slimmer legs."
+        };
+        
+        const link = {
+            hourglass: "hourglass",
+            pear: "pear",
+            rectangle: "rectangle",
+            apple: "apple"
+        }
+        document.getElementById("quiz").style.display = "none";
+        document.querySelector("button").style.display = "none";
+
+        const result = document.getElementById("result");
+        result.innerHTML = `<h3>Your Body Type:</h3><p>${descriptions[finalType]}</p><a href="${link[finalType]}.html">Get some styling tips!</a>`;
+        result.style.display = "block";
+    }
+
+    loadQuestion();
+</script>
 
 </body>
-<script>
-    
-</script>
 </html>
